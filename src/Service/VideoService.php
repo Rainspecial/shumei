@@ -34,4 +34,11 @@ class VideoService extends BaseService
         return false;
     }
 
+    public function callback($params)
+    {
+        if ($this->checkResult($params)) {
+            return $params;
+        }
+        return false;
+    }
 }
