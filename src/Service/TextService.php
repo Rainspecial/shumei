@@ -24,10 +24,8 @@ class TextService extends BaseService {
             'body' => json_encode($params),
         ]);
         $result = json_decode($response->getBody(), true);
-        if ($this->checkResult($result)) {
-            return $result;
-        }
-        return false;
+        $this->checkResult($result);
+        return $result;
     }
 
 }

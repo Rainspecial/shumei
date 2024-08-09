@@ -8,9 +8,9 @@ class BaseService{
     public function checkResult($result)
     {
         if ($result['code'] == 1100) {
-            return true;
+            return $result;
         } else {
-            return false;
+            throw new \Exception($result['message']);
         }
     }
 }
