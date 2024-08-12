@@ -70,3 +70,15 @@ var_dump(Shumei\Shumei\Factory\Factory::text($config)->check($params));exit;
 //    'data' => ['btId'=>'test2','tokenId' => '0','url' => 'https://peique-1318387147.cos.ap-guangzhou.myqcloud.com/dev/video_show/2024/07/30/x9EeridxkdYQsp7MWo7IU5U5mnZG1C5hNFzfDrKs.mp4']
 //];
 //var_dump(Shumei\Shumei\Factory\Factory::video($config)->check($params));exit;
+
+
+// 音频监测同步
+$params = [
+    'eventId' => 'message',
+    'btId' => 'test1',
+    'type' => 'POLITICAL_PORN_AD_ABUSE_MOAN',
+    'contentType' => 'URL',
+    'content' => 'https://peique-1318387147.cos.ap-guangzhou.myqcloud.com/dev/user_audio/2024/07/29/LrRnnEgomA54bvsmowQu8Rqnsg5ZUMy6mls3hht0.m4a',
+    'data' => ['tokenId' => '0']
+];
+var_dump(Shumei\Shumei\Factory\Factory::audio($config)->check($params));exit;

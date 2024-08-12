@@ -7,6 +7,8 @@ class AudioService extends BaseService
 {
 
     const URL = 'http://api-audio-sh.fengkongcloud.com/audio/';
+
+    const SYNC_URL = 'http://api-audio-sh.fengkongcloud.com/audiomessage/v4';
     const VERSION = 'v4';
 
     public function __construct($config)
@@ -21,6 +23,22 @@ class AudioService extends BaseService
         $params['accessKey'] = $this->config['accessKey'];
         $params['appId'] = $this->config['appId'];
         $params['callback'] = $this->config['callback']; // 回调地址
+        $client = new \GuzzleHttp\Client([
+            'timeout' => 3,
+            'headers' => ['Content-Type' => 'application/json; charset=utf-8'],
+        ]);
+        $response = $client->request('POST', $this->config['url'].$this->config['version'], [
+            'body' => json_encode($params),
+        ]);
+        $result = json_decode($response->getBody(), true);
+        $this->checkResult($result);
+        return $result;
+    }
+
+    public function syncCheck($params)
+    {
+        $params['accessKey'] = $this->config['accessKey'];
+        $params['appId'] = $this->config['appId'];
         $client = new \GuzzleHttp\Client([
             'timeout' => 3,
             'headers' => ['Content-Type' => 'application/json; charset=utf-8'],
