@@ -8,13 +8,14 @@ class AudioService extends BaseService
 
     const URL = 'http://api-audio-sh.fengkongcloud.com/audio/';
 
-    const SYNC_URL = 'http://api-audio-sh.fengkongcloud.com/audiomessage/v4';
+    const SYNC_URL = 'http://api-audio-sh.fengkongcloud.com/audiomessage/';
     const VERSION = 'v4';
 
     public function __construct($config)
     {
         $config['version'] = self::VERSION;
         $config['url'] = self::URL;
+        $config['syn_url'] = self::SYNC_URL;
         $this->config = $config;
     }
 
@@ -43,7 +44,7 @@ class AudioService extends BaseService
             'timeout' => 10,
             'headers' => ['Content-Type' => 'application/json; charset=utf-8'],
         ]);
-        $response = $client->request('POST', $this->config['url'].$this->config['version'], [
+        $response = $client->request('POST', $this->config['syn_url'].$this->config['version'], [
             'body' => json_encode($params),
         ]);
         $result = json_decode($response->getBody(), true);

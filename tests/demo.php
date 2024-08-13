@@ -6,15 +6,15 @@ $config = [
     'appId' => 'default',
 ];
 // 文本监测
-$params = [
-    'eventId' => 'nickname',
-    'type' => 'TEXTRISK',
-    'data' => [
-        'text' => '违禁词',
-        'tokenId' => '0'
-    ]
-];
-var_dump(Shumei\Shumei\Factory\Factory::text($config)->check($params));exit;
+//$params = [
+//    'eventId' => 'nickname',
+//    'type' => 'TEXTRISK',
+//    'data' => [
+//        'text' => '违禁词',
+//        'tokenId' => '0'
+//    ]
+//];
+//var_dump(Shumei\Shumei\Factory\Factory::text($config)->check($params));exit;
 
 // 图片监测
 //$params = [
@@ -73,12 +73,12 @@ var_dump(Shumei\Shumei\Factory\Factory::text($config)->check($params));exit;
 
 
 // 音频监测同步
-$params = [
-    'eventId' => 'message',
-    'btId' => 'test1',
-    'type' => 'POLITICAL_PORN_AD_ABUSE_MOAN',
-    'contentType' => 'URL',
-    'content' => 'https://peique-1318387147.cos.ap-guangzhou.myqcloud.com/dev/user_audio/2024/07/29/LrRnnEgomA54bvsmowQu8Rqnsg5ZUMy6mls3hht0.m4a',
-    'data' => ['tokenId' => '0']
-];
-var_dump(Shumei\Shumei\Factory\Factory::audio($config)->check($params));exit;
+//$params = [
+//    'eventId' => 'message',
+//    'btId' => 'test123',
+//    'type' => 'POLITICAL_PORN_AD_ABUSE_MOAN',
+//    'contentType' => 'URL',
+//    'content' => 'http://file.dev.pique.nnwmkj.com:7080/chat/2024/08/13/dpvgfpn5zzc70TKaAkEQny0xkTxHNkLEsi1PGQBO.m4a',
+//    'data' => ['tokenId' => '0']
+//];
+//var_dump(Shumei\Shumei\Factory\Factory::audio($config)->syncCheck($params));exit;
